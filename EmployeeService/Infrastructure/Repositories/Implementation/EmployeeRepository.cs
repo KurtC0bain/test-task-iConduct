@@ -1,4 +1,4 @@
-﻿using EmployeeService.Helpers;
+﻿using Helpers;
 using Infrastructure.Repositories.Abstraction;
 using System.Data;
 using System.Data.SqlClient;

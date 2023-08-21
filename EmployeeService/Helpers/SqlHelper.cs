@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace EmployeeService.Helpers
+namespace Helpers
 {
     public static class SqlHelper
     {
@@ -24,7 +24,7 @@ namespace EmployeeService.Helpers
             updateCommand.Parameters.Add("@enable", SqlDbType.Bit).Value = enable;
 
             adapter.UpdateCommand = updateCommand;
-            
+
             return adapter;
         }
     }

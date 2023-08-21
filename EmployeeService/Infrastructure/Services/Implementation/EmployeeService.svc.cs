@@ -2,8 +2,6 @@
 using Infrastructure.Repositories.Abstraction;
 using Infrastructure.Repositories.Implementation;
 using Infrastructure.Services.Abstraction;
-using Models;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Infrastructure.Services.Implementation
@@ -11,7 +9,6 @@ namespace Infrastructure.Services.Implementation
     public class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeRepository _employeeRepository;
-
         public EmployeeService()
         {
             _employeeRepository = new EmployeeRepository();
