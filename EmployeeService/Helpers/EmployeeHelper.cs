@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Infrastructure.Repositories.Abstraction;
+using Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,12 @@ namespace Helpers
 {
     public static class EmployeeHelper
     {
+        public static IEnumerable<Employee> GetEmployees(IEmployeeRepository employeeRepository)
+        {
+            var employeesDataTable = employeeRepository.GetAllEmployees();
+            return ConvertHelper.ConvertDataTable<Employee>(employeesDataTable);
+        }
+
         public static Employee GetById(List<Employee> allEmployees, int id)
         {
             var employeeDictionary = allEmployees.ToDictionary(e => e.ID, e => e);
@@ -29,6 +36,7 @@ namespace Helpers
                 }
             }
         }
+
     }
 }
 

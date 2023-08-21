@@ -1,4 +1,5 @@
-﻿using Infrastructure.Repositories.Abstraction;
+﻿using EmployeeService.Helpers;
+using Infrastructure.Repositories.Abstraction;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -13,27 +14,30 @@ namespace Infrastructure.Repositories.Implementation
             _сonnectionString = "Data Source=(local);Initial Catalog=Test;Integrated Security=true";
         }
 
-
         public DataTable GetAllEmployees()
         {
             var dt = new DataTable();
-            var statement = "SELECT * FROM Employee";
 
             using (var connection = new SqlConnection(_сonnectionString))
             {
                 connection.Open();
 
-                using (var command = connection.CreateCommand())
-                {
-                    command.CommandText = statement;
+                SqlHelper.GetSelectAdapter(connection).Fill(dt);
 
-                    using (var adapter = new SqlDataAdapter(command))
-                    {
-                        adapter.Fill(dt);
-                    }
-                }
+                connection.Close();
             }
             return dt;
+        }
+        public void EnableEmployee(int employeeId, int enable)
+        {
+            using (var connection = new SqlConnection(_сonnectionString))
+            {
+                connection.Open();
+
+                SqlHelper.GetUpdateAdapter(connection, employeeId, enable).UpdateCommand.ExecuteNonQuery();
+
+                connection.Close();
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Helpers
             }
             return resultList;
         }
+
         private static T GetItem<T>(DataRow dataRow)
         {
             Type temp = typeof(T);

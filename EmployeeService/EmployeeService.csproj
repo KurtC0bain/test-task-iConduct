@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="Helpers\ConvertHelper.cs" />
     <Compile Include="Helpers\EmployeeHelper.cs" />
+    <Compile Include="Helpers\SqlHelper.cs" />
     <Compile Include="Infrastructure\Repositories\Abstraction\IEmployeeRepository.cs" />
     <Compile Include="Infrastructure\Repositories\Implementation\EmployeeRepository.cs" />
     <Compile Include="Infrastructure\Services\Implementation\EmployeeService.svc.cs">

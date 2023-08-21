@@ -3,6 +3,8 @@ using Infrastructure.Repositories.Abstraction;
 using Infrastructure.Repositories.Implementation;
 using Infrastructure.Services.Abstraction;
 using Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Infrastructure.Services.Implementation
 {
@@ -17,26 +19,19 @@ namespace Infrastructure.Services.Implementation
 
         public bool GetEmployeeById(int id)
         {
-            var employeesDataTable = _employeeRepository.GetAllEmployees();
+            var employees = EmployeeHelper.GetEmployees(_employeeRepository);
 
-            var employees = ConvertHelper.ConvertDataTable<Employee>(employeesDataTable);
-
-            var employee = EmployeeHelper.GetById(employees, id);
+            var employee = EmployeeHelper.GetById(employees.ToList(), id);
 
             return !(employee is null);
         }
 
 
-
         public void EnableEmployee(int id, int enable)
         {
-
+            _employeeRepository.EnableEmployee(id, enable);
         }
 
-
-
-
     }
-
 
 }
