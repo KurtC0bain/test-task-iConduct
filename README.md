@@ -50,6 +50,5 @@ I used default connection string that was provided in test task
 
 ```
 Data Source=(local);Initial Catalog=Test;User ID=sa;Password=**********;
-
 ```
 In case of any problem with connection to the database please ensure that your database has name `Test` and table `Employee` in it. 
