@@ -2,6 +2,7 @@
 using Infrastructure.Repositories.Abstraction;
 using Infrastructure.Repositories.Implementation;
 using Infrastructure.Services.Abstraction;
+using System;
 using System.Linq;
 
 namespace Infrastructure.Services.Implementation
@@ -23,10 +24,10 @@ namespace Infrastructure.Services.Implementation
             return !(employee is null);
         }
 
-
         public void EnableEmployee(int id, int enable)
         {
-            _employeeRepository.EnableEmployee(id, enable);
+            if (enable == 1 || enable == 0)
+                _employeeRepository.EnableEmployee(id, enable);
         }
 
     }
