@@ -11,7 +11,7 @@ namespace Infrastructure.Repositories.Implementation
 
         public EmployeeRepository()
         {
-            _сonnectionString = "Data Source=(local);Initial Catalog=Test;Integrated Security=true";
+            _сonnectionString = "Data Source=(local);Initial Catalog=Test;User ID=sa;Password=pass@word1; ";
         }
 
         public DataTable GetAllEmployees()
